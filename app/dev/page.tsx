@@ -5,6 +5,7 @@ import Navigation from '@/components/navigation'
 import Hero from '@/components/hero'
 import ProductShowcase from '@/components/product-showcase'
 import FlavorCards from '@/components/flavor-cards'
+import UpcomingProducts from '@/components/UpcomingProducts'
 import Infrastructure from '@/components/infrastructure'
 import Footer from '@/components/footer'
 
@@ -23,6 +24,7 @@ export default function DevHome() {
                     <Hero />
                     <ProductShowcase />
                     <FlavorCards />
+                    <UpcomingProducts />
                     <Infrastructure />
                     <Footer />
                 </>

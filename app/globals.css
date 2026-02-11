@@ -32,6 +32,14 @@ body {
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
   }
+
+  .animate-slow-zoom {
+    animation: slowZoom 20s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -89,6 +97,47 @@ body {
 
   50% {
     text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  }
+}
+
+@keyframes slowZoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2), inset 0 0 10px rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.6);
+  }
+}
+
+@layer utilities {
+  .animate-border-glow {
+    animation: borderGlow 4s ease-in-out infinite;
   }
 }
 
