@@ -22,7 +22,7 @@ export default function Navigation() {
           <div className="flex items-center gap-2">
             <div className="relative w-12 h-12">
               <Image
-                src="/logo.jpg"
+                src="/Logo.png"
                 alt="Chillcloud Logo"
                 width={48}
                 height={48}
