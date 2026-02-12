@@ -55,9 +55,9 @@ const flavors = [
 
 export default function FlavorCards() {
   return (
-    <section id="flavors" className="py-24 md:py-32 bg-black relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#d4af37]/[0.02] rounded-full blur-[120px] pointer-events-none" />
+    <section id="flavors" className="py-24 md:py-32 bg-[#0D0D0D] relative overflow-hidden">
+      {/* Background radial glow - Warm Gold */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#D4AF37]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -68,15 +68,15 @@ export default function FlavorCards() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#d4af37] text-sm md:text-base font-semibold tracking-[0.4em] uppercase mb-4 block">
+            <span className="text-[#D4AF37] text-sm md:text-base font-bold tracking-[0.4em] uppercase mb-4 block">
               Sensory Experience
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white" style={{ fontFamily: 'Playfair Display' }}>
-              OUR <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">CURATED</span> FLAVORS
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#F9F7F2]" style={{ fontFamily: 'var(--font-playfair)' }}>
+              OUR <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">CURATED</span> FLAVORS
             </h2>
-            <div className="w-64 h-[0.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-8" />
+            <div className="w-64 h-[0.5px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-8" />
             <p className="text-gray-400 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed">
-              Harmoniously blending art and innovation to unlock the most exquisite and exotic curated profiles.
+              Harmoniously blending tradition and innovation to unlock the most exquisite and exotic curated profiles.
             </p>
           </motion.div>
         </div>
@@ -92,37 +92,37 @@ export default function FlavorCards() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative h-80 rounded-[2rem] p-8 overflow-hidden bg-[#111] border border-white/[0.05] transition-all duration-700 hover:border-[#d4af37]/40 hover:-translate-y-2">
+              <div className="relative h-72 rounded-[2rem] p-8 overflow-hidden bg-[#151515] border border-white/[0.1] transition-all duration-700 hover:border-[#D4AF37]/80 hover:-translate-y-2">
                 {/* Glow behind card */}
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#d4af37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2rem] blur-sm" />
+                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2rem] blur-sm" />
 
                 {/* Card Content Interior */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
-                    <div className="flex justify-between items-start mb-6">
-                      <span className="text-[#d4af37] text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5">
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5">
                         {flavor.tag}
                       </span>
-                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#d4af37]/50 transition-colors">
-                        <div className="w-1 h-1 bg-white group-hover:bg-[#d4af37] rounded-full" />
+                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors">
+                        <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
                       </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-[#d4af37] transition-colors" style={{ fontFamily: 'Playfair Display' }}>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-[#F9F7F2] group-hover:text-[#D4AF37] transition-colors" style={{ fontFamily: 'var(--font-playfair)' }}>
                       {flavor.name}
                     </h3>
-                    <p className="text-[#d4af37]/60 text-xs font-semibold tracking-widest uppercase mb-4">
+                    <p className="text-[#D4AF37]/95 text-xs font-semibold tracking-widest uppercase">
                       {flavor.type}
                     </p>
                   </div>
 
-                  <p className="text-gray-500 text-sm leading-relaxed font-light group-hover:text-gray-400 transition-colors">
+                  <p className="text-gray-300 text-sm leading-relaxed font-light group-hover:text-gray-200 transition-colors">
                     {flavor.description}
                   </p>
                 </div>
 
                 {/* Subtle light sweep */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </div>
             </motion.div>
           ))}
