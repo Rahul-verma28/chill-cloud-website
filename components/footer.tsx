@@ -1,106 +1,153 @@
 'use client'
 
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react'
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function Footer() {
-  return (
-    <footer id="contact" className="bg-secondary text-foreground relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-      </div>
+  const currentYear = new Date().getFullYear()
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
-          <div className="animate-slide-up">
-            <h3 className="text-xl font-bold mb-4 text-primary" style={{ fontFamily: 'Playfair Display' }}>
-              Chillcloud
-            </h3>
-            <p className="text-foreground/70 text-sm leading-relaxed">
-              Premium smoking accessories manufacturer crafting excellence since 2024.
+  const links = {
+    navigation: [
+      { name: 'Home', href: '#home' },
+      { name: 'Products', href: '#products' },
+      { name: 'About Us', href: '#about' },
+      { name: 'Flavors', href: '#flavors' },
+      { name: 'Infrastructure', href: '#infrastructure' }
+    ],
+    collection: [
+      { name: 'Luxury Ciga-Rolls', href: '#' },
+      { name: 'Artisan Cones', href: '#' },
+      { name: 'Slim Series', href: '#' },
+      { name: 'Gold Collection', href: '#' },
+      { name: 'Elite Accessories', href: '#' }
+    ]
+  }
+
+  return (
+    <footer id="contact" className="bg-black text-white relative overflow-hidden border-t border-white/5">
+      {/* Background radial glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#d4af37]/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-20">
+
+          {/* Brand Column */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/Logo.png"
+                  alt="Chillcloud"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Playfair Display' }}>
+                Chillcloud
+              </span>
+            </div>
+            <p className="text-gray-500 text-sm leading-relaxed max-w-xs font-light">
+              Crafting premium experiences for the modern connoisseur. Our dedication to artisanal excellence defines the gold standard of relaxation.
             </p>
-            <div className="flex gap-3 mt-6">
-              <a href="#" className="p-2 bg-primary/20 rounded-lg hover:bg-primary/30 transition-colors duration-300">
-                <Facebook size={16} className="text-primary" />
-              </a>
-              <a href="#" className="p-2 bg-primary/20 rounded-lg hover:bg-primary/30 transition-colors duration-300">
-                <Twitter size={16} className="text-primary" />
-              </a>
-              <a href="#" className="p-2 bg-primary/20 rounded-lg hover:bg-primary/30 transition-colors duration-300">
-                <Instagram size={16} className="text-primary" />
-              </a>
+            <div className="flex gap-4">
+              {[Facebook, Twitter, Instagram].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:border-[#d4af37] hover:text-[#d4af37] transition-all duration-300"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <h4 className="text-lg font-bold mb-4 text-foreground">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Home', 'Products', 'About Us', 'Infrastructure', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
-                    {link}
+          <div className="space-y-8">
+            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Discovery</h4>
+            <ul className="space-y-4">
+              {links.navigation.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-gray-500 hover:text-white transition-colors text-sm font-light flex items-center group">
+                    <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
+                    {item.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Products */}
-          <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <h4 className="text-lg font-bold mb-4 text-foreground">Our Products</h4>
-            <ul className="space-y-2">
-              {['Ciga-Rolls', 'Pre-Rolled Cones', 'Rolling Papers', 'Slim Ciga-Rolls', 'Accessories'].map((product) => (
-                <li key={product}>
-                  <a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
-                    {product}
+          {/* Catalog */}
+          <div className="space-y-8">
+            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Collections</h4>
+            <ul className="space-y-4">
+              {links.collection.map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-gray-500 hover:text-white transition-colors text-sm font-light flex items-center group">
+                    <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
+                    {item.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-            <h4 className="text-lg font-bold mb-4 text-foreground">Get in Touch</h4>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <Phone size={16} className="text-primary mt-1 flex-shrink-0" />
+          {/* Contact Details */}
+          <div className="space-y-8">
+            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Concierge</h4>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
+                  <Phone size={18} />
+                </div>
                 <div>
-                  <p className="text-foreground/70 text-sm">+91 8092-3238-05</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Inquiries</p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">+91 8092-3238-05</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
+                  <Mail size={18} />
+                </div>
                 <div>
-                  <p className="text-foreground/70 text-sm">G-247, Sector-63, Noida, UP 201301</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Email</p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">contact@chillcloud.in</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Mail size={16} className="text-primary mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
+                  <MapPin size={18} />
+                </div>
                 <div>
-                  <p className="text-foreground/70 text-sm">contact@chillcloud.in</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Location</p>
+                  <p className="text-sm font-medium leading-relaxed">G-247, Sector-63,<br />Noida, UP 201301</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-secondary/30 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-            <p className="text-foreground/60 text-sm">
-              © 2024 Chillcloud India LLP. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <p className="text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold">
+              © {currentYear} CHILLCLOUD INDIA LLP
             </p>
-            <div className="flex gap-6 justify-end text-sm">
-              <a href="#" className="text-foreground/60 hover:text-primary transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-foreground/60 hover:text-primary transition-colors duration-300">
-                Terms of Use
-              </a>
+            <div className="flex gap-8 text-[11px] uppercase tracking-widest font-bold">
+              <a href="#" className="text-gray-500 hover:text-[#d4af37] transition-colors">Privacy</a>
+              <a href="#" className="text-gray-500 hover:text-[#d4af37] transition-colors">Terms</a>
             </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">Artisan Certified</span>
+            <div className="w-8 h-[1px] bg-[#d4af37]/30" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="w-5 h-5 rounded-full border border-[#d4af37]/40 border-t-[#d4af37]"
+            />
           </div>
         </div>
       </div>

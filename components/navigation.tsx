@@ -1,80 +1,120 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const menuItems = [
     { label: 'Home', href: '#home' },
+    { label: 'Discovery', href: '#about' },
     { label: 'Products', href: '#products' },
-    { label: 'About Us', href: '#about' },
+    { label: 'Flavors', href: '#flavors' },
     { label: 'Infrastructure', href: '#infrastructure' },
     { label: 'Contact', href: '#contact' },
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-secondary/30 animate-slide-down">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
+      scrolled
+        ? "bg-black/80 backdrop-blur-xl border-white/5 py-2"
+        : "bg-transparent border-transparent py-4"
+    )}>
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="relative w-12 h-12">
+          {/* Logo Section */}
+          <div className="flex items-center gap-4 group cursor-pointer">
+            <div className="relative w-16 h-16 transition-transform duration-500 group-hover:scale-110">
               <Image
-                src="/Logo.png"
-                alt="Chillcloud Logo"
-                width={48}
-                height={48}
-                className="w-full h-full object-contain"
+                src="/Logo-white.png"
+                alt="Chillcloud"
+                width={100}
+                height={100}
+                className="object-contain"
+                priority
               />
             </div>
-            <span className="text-2xl font-bold text-primary hidden sm:inline" style={{ fontFamily: 'Playfair Display' }}>
-              Chillcloud
-            </span>
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold tracking-tight text-white group-hover:text-[#d4af37] transition-colors" style={{ fontFamily: 'Playfair Display' }}>
+                Chillcloud
+              </span>
+              <span className="text-[10px] tracking-[0.4em] font-bold text-[#d4af37] uppercase -mt-1">
+                Elite Standard
+              </span>
+            </div>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex gap-8">
+          <div className="hidden lg:flex gap-10 items-center">
             {menuItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="relative text-xs font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors duration-300 group"
               >
                 {item.label}
+                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#d4af37] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            <button className="ml-4 px-8 py-3 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-black text-[10px] font-bold tracking-widest rounded-full hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:scale-105 uppercase">
+              Shop Now
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden flex flex-col gap-1.5 cursor-pointer"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? 'opacity-0' : ''}`} />
-            <div className={`w-6 h-0.5 bg-primary transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <div className={cn("w-6 h-0.5 bg-[#d4af37] transition-all", isOpen ? "rotate-45 translate-y-2" : "")} />
+            <div className={cn("w-4 h-0.5 bg-[#d4af37] self-end transition-all", isOpen ? "opacity-0" : "")} />
+            <div className={cn("w-6 h-0.5 bg-[#d4af37] transition-all", isOpen ? "-rotate-45 -translate-y-2" : "")} />
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="lg:hidden pb-4 animate-slide-down">
-            {menuItems.map((item) => (
-              <a
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/5 pb-12 pt-8 px-6 flex flex-col items-center gap-8"
+          >
+            {menuItems.map((item, idx) => (
+              <motion.a
                 key={item.label}
                 href={item.href}
-                className="block py-2 text-sm text-foreground/80 hover:text-primary transition-colors"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="text-xl font-bold tracking-widest text-white/80 hover:text-[#d4af37] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
-              </a>
+              </motion.a>
             ))}
-          </div>
+            <button className="mt-4 w-full px-10 py-4 bg-[#d4af37] text-black font-bold tracking-widest rounded-full uppercase text-xs">
+              Shop Now
+            </button>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   )
 }

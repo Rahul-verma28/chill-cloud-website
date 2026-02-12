@@ -1,115 +1,144 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function Infrastructure() {
   return (
-    <section id="infrastructure" className="py-20 bg-background relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-primary/5 rounded-r-3xl blur-3xl transform -translate-y-1/2" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="infrastructure" className="py-24 md:py-32 bg-black relative overflow-hidden">
+      {/* Decorative Orbs */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: 'Playfair Display' }}>
-            CORPORATE PROFILE & INFRASTRUCTURE
-          </h2>
-          <div className="flex justify-center mb-6">
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
+        <div className="text-center mb-20 md:mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-[#d4af37] text-sm md:text-base font-semibold tracking-[0.4em] uppercase mb-4 block">
+              Operational Excellence
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white" style={{ fontFamily: 'Playfair Display' }}>
+              CORPORATE PROFILE & <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">INFRASTRUCTURE</span>
+            </h2>
+            <div className="w-64 h-[0.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto" />
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Content */}
-          <div className="animate-slide-up space-y-8" style={{ animationDelay: '0.1s' }}>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-10"
+          >
             {/* Company Brief */}
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-primary" style={{ fontFamily: 'Playfair Display' }}>
-                COMPANY BRIEF
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-white tracking-wide" style={{ fontFamily: 'Playfair Display' }}>
+                The Artisanal Edge
               </h3>
-              <p className="text-foreground/70 leading-relaxed text-lg">
-                Chillcloud India LLP is a premier manufacturer and wholesaler of luxury smoking accessories, committed to delivering excellence and sophistication. Our journey is driven by a passion for quality and a dedication to crafting the finest hand-rolled ciga-rolls and accessories.
+              <p className="text-gray-400 leading-relaxed text-lg font-light">
+                Chillcloud India LLP is a premier manufacturer and wholesaler of luxury smoking accessories. Our facility in Noida is where traditional craftsmanship meets state-of-the-art production standards.
               </p>
             </div>
 
-            {/* Company Details */}
-            <div className="space-y-3 bg-secondary/30 rounded-lg p-6 border border-secondary/30">
-              <div className="flex justify-between items-start pb-3 border-b border-secondary/20">
-                <span className="font-semibold text-primary uppercase text-sm">Legal Status</span>
-                <span className="text-foreground/70">Limited Liability Partnership (LLP)</span>
-              </div>
-              <div className="flex justify-between items-start pb-3 border-b border-secondary/20">
-                <span className="font-semibold text-primary uppercase text-sm">GST Information</span>
-                <span className="text-foreground/70">09AAUFC2629K1ZW</span>
-              </div>
-              <div className="flex justify-between items-start">
-                <span className="font-semibold text-primary uppercase text-sm">Location</span>
-                <span className="text-foreground/70">Noida, Uttar Pradesh, India</span>
-              </div>
-            </div>
-
-            {/* Team */}
-            <div>
-              <h4 className="text-xl font-bold mb-3 text-primary" style={{ fontFamily: 'Playfair Display' }}>
-                Our Skilled Team
-              </h4>
-              <p className="text-foreground/70 mb-3">
-                With 70-100 dedicated artisans, our state-of-the-art production facility ensures high-volume, quality-controlled manufacturing.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold">70-100 Artisans</span>
-                <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold">Premium Quality</span>
-                <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold">Expert Craftsmanship</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right - Images Grid */}
-          <div className="animate-slide-up relative" style={{ animationDelay: '0.2s' }}>
+            {/* Company Details - Glass Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Large image */}
-              <div className="sm:col-span-2 h-48 rounded-xl overflow-hidden border-2 border-secondary/30 hover:border-primary/50 transition-colors duration-300">
+              {[
+                { label: 'Legal Status', val: 'LLP Partnership' },
+                { label: 'GST Number', val: '09AAUFC2629K1ZW' },
+                { label: 'Active Team', val: '70-100 Artisans' },
+                { label: 'Global Standard', val: 'Quality Controlled' }
+              ].map((item, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#d4af37]/30 transition-all duration-300 group">
+                  <p className="text-[#d4af37] text-[10px] font-bold tracking-widest uppercase mb-1">{item.label}</p>
+                  <p className="text-white font-medium group-hover:text-[#f4d03f] transition-colors">{item.val}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Badge Group */}
+            <div className="flex gap-4 flex-wrap pt-4">
+              <div className="px-5 py-2 bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] rounded-full text-xs font-bold tracking-widest uppercase">
+                Artisan Driven
+              </div>
+              <div className="px-5 py-2 bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] rounded-full text-xs font-bold tracking-widest uppercase">
+                Premium Grade
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right - Interactive Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-12 h-64 rounded-3xl overflow-hidden border border-white/10 group">
                 <Image
                   src="/images/files-9072929-2026-02-11t09-30-50-563z-image.png"
-                  alt="Chillcloud Factory Floor"
-                  width={600}
-                  height={300}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  alt="Chillcloud Infrastructure"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <p className="text-[#d4af37] font-bold text-xs uppercase tracking-widest mb-1">Production Hub</p>
+                  <p className="text-white font-medium text-lg">World-Class Noida Facility</p>
+                </div>
               </div>
-
-              {/* Company info box */}
-              <div className="bg-secondary/30 rounded-xl p-6 border-2 border-secondary/30 hover:border-primary/50 transition-colors duration-300">
-                <h4 className="text-sm font-bold text-primary mb-2 uppercase">Infrastructure</h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  State-of-the-art production facility equipped with modern machinery and quality control systems.
+              <div className="col-span-12 md:col-span-6 bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-[#d4af37]/5 transition-all">
+                <div className="w-10 h-10 rounded-full bg-[#d4af37]/20 flex items-center justify-center mb-4">
+                  <div className="w-2 h-2 bg-[#d4af37] rounded-full animate-ping" />
+                </div>
+                <h4 className="text-white font-bold mb-2 uppercase tracking-tight">Rapid Logistics</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Advanced packaging and nationwide reach ensuring product integrity from factory to doorstep.
                 </p>
               </div>
-
-              {/* Services box */}
-              <div className="bg-secondary/30 rounded-xl p-6 border-2 border-secondary/30 hover:border-primary/50 transition-colors duration-300">
-                <h4 className="text-sm font-bold text-primary mb-2 uppercase">Services</h4>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  Customized packaging, multiple payment modes, and nationwide shipping available.
+              <div className="col-span-12 md:col-span-6 bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-[#d4af37]/5 transition-all">
+                <div className="w-10 h-10 rounded-full bg-[#d4af37]/20 flex items-center justify-center mb-4 text-[#d4af37] font-bold">
+                  ★
+                </div>
+                <h4 className="text-white font-bold mb-2 uppercase tracking-tight">Quality Scale</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Capable of high-volume output without compromising our signature artisanal roll quality.
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Markets Section */}
-        <div className="mt-16 pt-16 border-t border-secondary/30 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <h3 className="text-2xl font-bold mb-8 text-center" style={{ fontFamily: 'Playfair Display' }}>
-            OUR MARKETS & REACH
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Gujarat', 'Odisha', 'Delhi NCR', 'Chhattisgarh'].map((region) => (
-              <div key={region} className="p-6 bg-secondary/20 rounded-lg border border-secondary/30 text-center hover:border-primary/50 hover:bg-secondary/40 transition-all duration-300">
-                <p className="font-semibold text-foreground">{region}</p>
-                <p className="text-sm text-foreground/60 mt-1">Active Market</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-24 pt-24 border-t border-white/5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-2xl font-bold mb-12 text-center text-white" style={{ fontFamily: 'Playfair Display' }}>
+              OUR <span className="text-[#d4af37]">GLOBAL</span> MARKETS & REACH
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {['Gujarat', 'Odisha', 'Delhi NCR', 'Chhattisgarh'].map((region) => (
+                <div key={region} className="group relative p-8 bg-white/5 rounded-2xl border border-white/5 text-center overflow-hidden transition-all duration-300 hover:border-[#d4af37]/30">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#d4af37]/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500" />
+                  <p className="font-bold text-white text-lg tracking-wide group-hover:text-[#d4af37] transition-colors">{region}</p>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mt-2">Certified Market</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

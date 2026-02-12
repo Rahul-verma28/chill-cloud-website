@@ -51,7 +51,7 @@ export default function UnderConstruction() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/30 to-[#f4d03f]/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
             <div className="relative p-4 md:p-6 rounded-2xl border border-[#d4af37]/20 backdrop-blur-sm">
               <Image
-                src="/Logo-bgremoved.png"
+                src="/Logo.png"
                 alt="Chillcloud Logo"
                 width={100}
                 height={100}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Navigation from '@/components/navigation'
 import Hero from '@/components/hero'
+import AboutSection from '@/components/AboutSection'
 import ProductShowcase from '@/components/product-showcase'
 import FlavorCards from '@/components/flavor-cards'
 import UpcomingProducts from '@/components/UpcomingProducts'
@@ -22,6 +23,7 @@ export default function DevHome() {
             {isLoaded && (
                 <>
                     <Hero />
+                    <AboutSection />
                     <ProductShowcase />
                     <FlavorCards />
                     <UpcomingProducts />
