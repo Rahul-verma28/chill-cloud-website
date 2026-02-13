@@ -49,9 +49,9 @@ export default function UnderConstruction() {
         <div className={`flex justify-center pt-12 md:pt-16 transition-all duration-700 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/30 to-[#f4d03f]/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-            <div className="relative p-4 md:p-6 rounded-2xl border border-[#d4af37]/20 backdrop-blur-sm">
+            <div className="relative p-4 rounded-2xl border border-[#d4af37]/20 backdrop-blur-sm">
               <Image
-                src="/Logo.png"
+                src="/Logo-white.png"
                 alt="Chillcloud Logo"
                 width={100}
                 height={100}

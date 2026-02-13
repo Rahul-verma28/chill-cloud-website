@@ -61,7 +61,7 @@ export default function FlavorCards() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20 md:mb-24">
+        <div className="text-center mb-10 md:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,8 +74,8 @@ export default function FlavorCards() {
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#F9F7F2]" style={{ fontFamily: 'var(--font-playfair)' }}>
               OUR <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">CURATED</span> FLAVORS
             </h2>
-            <div className="w-64 h-[0.5px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-8" />
-            <p className="text-gray-400 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed">
+            <div className="w-64 h-[0.5px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-2" />
+            <p className="text-gray-300 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed">
               Harmoniously blending tradition and innovation to unlock the most exquisite and exotic curated profiles.
             </p>
           </motion.div>

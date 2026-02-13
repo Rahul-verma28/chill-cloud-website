@@ -52,29 +52,29 @@ export default function Hero() {
   }, [emblaApi, onSelect])
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] w-full overflow-hidden bg-black">
+    <section id="home" className="relative h-screen min-h-[700px] w-full bg-black">
       <div className="h-full w-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
-            <div key={index} className="relative h-full min-w-full flex-[0_0_100%] overflow-hidden">
+            <div key={index} className="relative min-w-full flex-[0_0_100%] overflow-hidden">
               {/* Background Image with Zoom Animation */}
               <div className="absolute inset-0">
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
-                  className={cn(
-                    "object-cover transition-transform duration-[10000ms]",
-                    selectedIndex === index ? "scale-110" : "scale-100"
-                  )}
+                  // className={cn(
+                  //   "object-cover transition-transform duration-[10000ms]",
+                  //   selectedIndex === index ? "scale-110" : "scale-100"
+                  // )}
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-                <div className="absolute inset-0 bg-black/40" />
+                {/* <div className="absolute inset-0 bg-black/40" /> */}
               </div>
 
               {/* Slide Content */}
-              <div className="relative z-10 flex h-full items-center px-6 md:px-16 lg:px-24">
+              <div className="relative max-w-7xl mx-auto z-10 flex h-full items-center px-6">
                 <div className="max-w-3xl">
                   {slide.subtitle && (
                     <p className={cn(

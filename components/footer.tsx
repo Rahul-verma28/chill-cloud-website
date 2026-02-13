@@ -27,17 +27,17 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-black text-white relative overflow-hidden border-t border-white/5">
       {/* Background radial glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#d4af37]/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#d4af37]/20 rounded-full blur-[120px] pointer-events-none" /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-20">
 
           {/* Brand Column */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12">
+          <div className="space-y-4">
+            <div className="flex items-center gap-1">
+              <div className="relative w-20 h-20">
                 <Image
-                  src="/Logo.png"
+                  src="/Logo-white.png"
                   alt="Chillcloud"
                   fill
                   className="object-contain"
@@ -47,7 +47,7 @@ export default function Footer() {
                 Chillcloud
               </span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xs font-light">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-light">
               Crafting premium experiences for the modern connoisseur. Our dedication to artisanal excellence defines the gold standard of relaxation.
             </p>
             <div className="flex gap-4">
@@ -65,11 +65,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Discovery</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Discovery</h4>
             <ul className="space-y-4">
               {links.navigation.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-500 hover:text-white transition-colors text-sm font-light flex items-center group">
+                  <a href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
                     {item.name}
                   </a>
@@ -80,11 +80,11 @@ export default function Footer() {
 
           {/* Catalog */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Collections</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Collections</h4>
             <ul className="space-y-4">
               {links.collection.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-500 hover:text-white transition-colors text-sm font-light flex items-center group">
+                  <a href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
                     {item.name}
                   </a>
@@ -95,14 +95,14 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-xs font-bold tracking-[0.2em] uppercase">Concierge</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Concierge</h4>
             <div className="space-y-6">
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Inquiries</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Inquiries</p>
                   <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">+91 8092-3238-05</p>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Email</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Email</p>
                   <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">contact@chillcloud.in</p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function Footer() {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Location</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Location</p>
                   <p className="text-sm font-medium leading-relaxed">G-247, Sector-63,<br />Noida, UP 201301</p>
                 </div>
               </div>
@@ -135,13 +135,13 @@ export default function Footer() {
               © {currentYear} CHILLCLOUD INDIA LLP
             </p>
             <div className="flex gap-8 text-[11px] uppercase tracking-widest font-bold">
-              <a href="#" className="text-gray-500 hover:text-[#d4af37] transition-colors">Privacy</a>
-              <a href="#" className="text-gray-500 hover:text-[#d4af37] transition-colors">Terms</a>
+              <a href="#" className="text-gray-400 hover:text-[#d4af37] transition-colors">Privacy</a>
+              <a href="#" className="text-gray-400 hover:text-[#d4af37] transition-colors">Terms</a>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">Artisan Certified</span>
+            <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Artisan Certified</span>
             <div className="w-8 h-[1px] bg-[#d4af37]/30" />
             <motion.div
               animate={{ rotate: 360 }}
