@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Send, MessageSquare, Clock, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Branding from './branding'
 
 export default function ContactContent() {
     const contactInfo = [
@@ -55,7 +56,7 @@ export default function ContactContent() {
             </section>
 
             {/* Main Content */}
-            <section className="pb-24 px-6">
+            <section className="p-24 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
@@ -167,19 +168,33 @@ export default function ContactContent() {
                 </div>
             </section>
 
-            {/* Decorative Branding */}
-            <section className="py-24 border-t border-white/5 opacity-30">
-                <div className="flex overflow-hidden relative group">
-                    <div className="flex animate-marquee whitespace-nowrap gap-20 py-10">
-                        {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="flex items-center gap-20">
-                                <span className="text-6xl md:text-8xl font-black text-transparent stroke-white/20" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.1)' }}>CHILLCLOUD</span>
-                                <span className="text-[#D4AF37] text-6xl md:text-8xl font-black">EXCELLENCE</span>
-                            </div>
-                        ))}
-                    </div>
+            {/* Google Maps Integration */}
+            <section className="pb-24 px-6">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="w-full h-[500px] rounded-[3rem] overflow-hidden border border-white/5 bg-white/5 relative group"
+                    >
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4154.603106292702!2d77.3877752760161!3d28.616165784822638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaab56c845dbb3ec3%3A0x52f5e89140477826!2sChillcloud%20India%20LLP!5e1!3m2!1sen!2sin!4v1771009607321!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen={true}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                        />
+                        {/* Overlay to catch initial clicks/scrolls if desired, or just styling */}
+                        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" />
+                    </motion.div>
                 </div>
             </section>
+
+            {/* Decorative Branding - Infinite Scroll */}
+            <Branding />
         </div>
     )
 }

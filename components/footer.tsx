@@ -25,9 +25,41 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="bg-black text-white relative overflow-hidden border-t border-white/5">
-      {/* Background radial glow */}
-      {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#d4af37]/20 rounded-full blur-[120px] pointer-events-none" /> */}
+    <footer id="contact" className="relative text-white overflow-hidden border-t border-white/5 bg-[#0D0B09]">
+
+      {/* Animated Brownish Gradient Layer */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#12100E] via-[#0D0D0D] to-[black]" />
+
+        {/* Shifting Animated Glows */}
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#D4AF37]/[0.05] rounded-full blur-[120px] pointer-events-none"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-[#8B4513]/[0.08] rounded-full blur-[150px] pointer-events-none"
+        />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-20">

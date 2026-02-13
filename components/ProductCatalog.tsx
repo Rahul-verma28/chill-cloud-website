@@ -24,7 +24,7 @@ export default function ProductCatalog({ isHomePage = false }: ProductCatalogPro
     }, [activeCategory, isHomePage])
 
     return (
-        <section className="py-24 md:py-32 bg-[#12100E]" id="catalog">
+        <section className="py-24 bg-gradient-to-t from-[#12100E] via-[#0D0D0D] to-[black]" id="catalog">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">

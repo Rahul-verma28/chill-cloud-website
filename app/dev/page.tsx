@@ -10,6 +10,7 @@ import FlavorCards from '@/components/flavor-cards'
 import UpcomingProducts from '@/components/UpcomingProducts'
 import Footer from '@/components/footer'
 import AboutSection from '@/components/AboutSection'
+import Branding from '@/components/branding'
 
 export default function DevHome() {
     // const [isLoaded, setIsLoaded] = useState(false)
@@ -19,7 +20,7 @@ export default function DevHome() {
     // }, [])
 
     return (
-        <div className=" text-foreground overflow-hidden">
+        <div className="bg-[#12100E] text-foreground overflow-hidden">
             <Navigation />
             {/* {isLoaded && (
                 <> */}
@@ -29,6 +30,7 @@ export default function DevHome() {
             <ProductCatalog isHomePage={true} />
             <FlavorCards />
             <UpcomingProducts />
+            <Branding />
             <Footer />
             {/* </>
             )} */}

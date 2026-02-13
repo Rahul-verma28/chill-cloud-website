@@ -33,16 +33,16 @@ const UPCOMING_PRODUCTS: UpcomingProduct[] = [
 
 export default function UpcomingProducts() {
     return (
-        <section id="upcoming" className="relative py-24 md:py-32 overflow-hidden bg-black">
+        <section id="upcoming" className="relative py-24 overflow-hidden bg-[#0D0D0D]">
             {/* Background Texture/Mist */}
             <div className="absolute inset-0 z-0 opacity-40">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[120px] animate-float" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#d4af37]/10 rounded-full blur-[120px] animate-float" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#d4af37]/10 rounded-full blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
             </div>
 
             <div className="max-w-7xl container mx-auto px-6 relative z-10">
                 {/* Section header */}
-                <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
+                <div className="text-center max-w-3xl mx-auto mb-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

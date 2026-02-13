@@ -8,21 +8,32 @@ import { cn } from '@/lib/utils'
 
 const SLIDES = [
   {
-    image: '/pre-rolles.png',
+    image: '/hero/hero-04.png',
     title: 'CIGA-ROLLS',
-    subtitle: 'PREMIUM SHOWCASE',
+    subtitle: 'THE GOLD STANDARD',
     description: 'CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.',
     badge: 'LUXURY COLLECTION'
   },
   {
-    image: '/bg-product.png',
-    title: 'Your Daily Dose of ',
-    highlight: 'Chill',
-    subtitle: 'THE ULTIMATE CRAFTSMAN',
-    description: 'Crafted for Pure Pleasure. Premium Handrolled Ciga-Rolls, Cones, and Rolling Papers designed for the modern connoisseur.',
+    image: '/hero/hero-06.png',
+    title: 'ELITE ',
+    highlight: 'CHILL',
+    subtitle: 'PREMIUM SHOWCASE',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
     buttons: [
-      { text: 'Explore Collection', primary: true },
-      { text: 'Learn Our Process', primary: false }
+      { text: 'Explore Now', primary: true },
+      { text: 'Concierge', primary: false }
+    ]
+  },
+  {
+    image: '/hero/hero-05.png',
+    title: 'ELITE ',
+    highlight: 'PACKAGING',
+    subtitle: 'THE GOLD STANDARD',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    buttons: [
+      { text: 'Explore Now', primary: true },
+      { text: 'Process', primary: false }
     ]
   }
 ]
@@ -46,39 +57,41 @@ export default function Hero() {
 
     const interval = setInterval(() => {
       emblaApi.scrollNext()
-    }, 5000)
+    }, 8000)
 
     return () => clearInterval(interval)
   }, [emblaApi, onSelect])
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] w-full bg-black">
+    <section id="home" className="relative h-screen min-h-[700px] w-full bg-[#0D0B09]">
       <div className="h-full w-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
             <div key={index} className="relative min-w-full flex-[0_0_100%] overflow-hidden">
-              {/* Background Image with Zoom Animation */}
+              {/* Background Image with Slow Cinematic Zoom */}
               <div className="absolute inset-0">
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
-                  // className={cn(
-                  //   "object-cover transition-transform duration-[10000ms]",
-                  //   selectedIndex === index ? "scale-110" : "scale-100"
-                  // )}
+                  quality={100}
+                  className={cn(
+                    "object-fill transition-transform duration-[20000ms] ease-out",
+                    selectedIndex === index ? "scale-105" : "scale-100"
+                  )}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-                {/* <div className="absolute inset-0 bg-black/40" /> */}
+                {/* Sophisticated Vignette Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/10" />
               </div>
 
-              {/* Slide Content */}
+              {/* Slide Content - Centered Layout for Wide Look */}
               <div className="relative max-w-7xl mx-auto z-10 flex h-full items-center px-6">
-                <div className="max-w-3xl">
+                <div className="max-w-4xl">
                   {slide.subtitle && (
                     <p className={cn(
-                      "mb-4 text-sm font-semibold tracking-[0.3em] text-primary uppercase transition-all duration-700 delay-300",
+                      "mb-6 text-sm font-black tracking-[0.5em] text-[#D4AF37] uppercase transition-all duration-1000 delay-300",
                       selectedIndex === index ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     )}>
                       {slide.subtitle}
@@ -86,42 +99,42 @@ export default function Hero() {
                   )}
 
                   <h1 className={cn(
-                    "mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl transition-all duration-700 delay-500",
+                    "mb-8 text-6xl font-bold tracking-tight text-white md:text-8xl transition-all duration-1000 delay-500",
                     selectedIndex === index ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                  )}>
-                    {slide.title}
+                  )} style={{ fontFamily: 'var(--font-playfair)' }}>
+                    <span className="block mb-2">{slide.title}</span>
                     {slide.highlight && (
-                      <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">
+                      <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">
                         {slide.highlight}
                       </span>
                     )}
                   </h1>
 
                   <p className={cn(
-                    "mb-10 max-w-xl text-lg text-gray-300 leading-relaxed transition-all duration-700 delay-700",
+                    "mb-12 max-w-2xl text-xl text-gray-200/90 leading-[1.8] font-light tracking-wide transition-all duration-1000 delay-700",
                     selectedIndex === index ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}>
                     {slide.description}
                   </p>
 
                   <div className={cn(
-                    "flex flex-wrap gap-4 transition-all duration-700 delay-1000",
+                    "flex flex-wrap gap-6 transition-all duration-1000 delay-1000",
                     selectedIndex === index ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}>
                     {slide.buttons ? slide.buttons.map((btn, i) => (
                       <button
                         key={i}
                         className={cn(
-                          "px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95",
+                          "px-10 py-4 rounded-full font-bold tracking-[0.2em] transition-all duration-500 transform hover:scale-105 active:scale-95 uppercase text-[10px]",
                           btn.primary
-                            ? "bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-black shadow-lg shadow-primary/20"
-                            : "border border-white/20 bg-white/5 text-white hover:bg-white/10"
+                            ? "bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-black shadow-[0_10px_40px_-10px_rgba(212,175,55,0.4)]"
+                            : "border border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10"
                         )}
                       >
                         {btn.text}
                       </button>
                     )) : (
-                      <button className="bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-black px-10 py-4 rounded-lg font-bold tracking-wider hover:shadow-xl hover:shadow-primary/30 transition-all transform hover:scale-105">
+                      <button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-black px-12 py-5 rounded-full font-black tracking-[0.3em] shadow-[0_20px_50px_-10px_rgba(212,175,55,0.5)] transition-all transform hover:scale-105 uppercase text-xs">
                         EXPLORE NOW
                       </button>
                     )}

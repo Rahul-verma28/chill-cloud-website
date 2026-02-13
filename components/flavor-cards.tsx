@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const flavors = [
@@ -7,55 +8,63 @@ const flavors = [
     name: 'Exotic Mango',
     type: 'Tropical Essence',
     description: 'The pure, sun-ripened depth of tropical paired with artisanal rolling.',
-    tag: 'Popular'
-  },
-  {
-    name: 'Wild Berry',
-    type: 'Forest Blend',
-    description: 'A deep, mysterious fusion of mountain berries and indigo notes.',
-    tag: 'Classic'
+    tag: 'Popular',
+    image: '/images/generated/flavors-showcase-1.png'
   },
   {
     name: 'Sweet Paan',
     type: 'Heritage Spice',
     description: 'A traditional masterpiece blending fresh green leaves with exotic sweetness.',
-    tag: 'Signature'
+    tag: 'Signature',
+    image: '/images/generated/flavors-showcase-3.png'
   },
   {
     name: 'Cool Mint',
     type: 'Pure Refreshment',
     description: 'Triple-distilled mint essence for a crisp, elevated finishing note.',
-    tag: 'Essential'
+    tag: 'Essential',
+    image: '/images/generated/flavors-showcase-4.png'
+  },
+  {
+    name: 'Wild Berry',
+    type: 'Forest Blend',
+    description: 'A deep, mysterious fusion of mountain berries and indigo notes.',
+    tag: 'Classic',
+    image: '/images/generated/flavors-showcase-1.png'
   },
   {
     name: 'Strawberry',
     type: 'Summer Fresh',
     description: 'Vibrant, hand-picked strawberry notes for a sophisticated sweet profile.',
-    tag: 'Fruity'
+    tag: 'Fruity',
+    image: '/images/generated/flavors-showcase-3.png'
   },
   {
     name: 'Kiwi Mint',
     type: 'Exotic Fusion',
     description: 'A complex balance of tart kiwi zest and refreshing menthol.',
-    tag: 'Modern'
+    tag: 'Modern',
+    image: '/images/generated/flavors-showcase-4.png'
   },
   {
     name: 'Royal Paan',
     type: 'Premium Blend',
     description: 'The gold standard of paan, featuring our most exclusive spice selection.',
-    tag: 'Luxury'
+    tag: 'Luxury',
+    image: '/images/generated/flavors-showcase-1.png'
   },
   {
     name: 'Dark Choco',
     type: 'Rich Velvet',
     description: 'Decadent cocoa undertones for a smooth, dessert-inspired experience.',
-    tag: 'Indulgent'
+    tag: 'Indulgent',
+    image: '/images/generated/flavors-showcase-3.png'
   }
 ]
 
 export default function FlavorCards() {
   return (
-    <section id="flavors" className="py-24 md:py-32 bg-[#0D0D0D] relative overflow-hidden">
+    <section id="flavors" className="py-24 bg-[#0D0D0D] relative overflow-hidden">
       {/* Background radial glow - Warm Gold */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#D4AF37]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
@@ -92,18 +101,31 @@ export default function FlavorCards() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative h-72 rounded-[2rem] p-8 overflow-hidden bg-[#151515] border border-white/[0.1] transition-all duration-700 hover:border-[#D4AF37]/80 hover:-translate-y-2">
+              <div className="relative h-80 rounded-[2rem] p-8 overflow-hidden bg-[#151515] border border-white/[0.1] transition-all duration-700 hover:border-[#D4AF37]/80 hover:-translate-y-2">
+                {/* Background Image if available */}
+                {flavor.image && (
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={flavor.image}
+                      alt={flavor.name}
+                      fill
+                      className="object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-[#151515]/50 to-transparent" />
+                  </div>
+                )}
+
                 {/* Glow behind card */}
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2rem] blur-sm" />
+                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] blur-sm" />
 
                 {/* Card Content Interior */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5">
+                      <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 backdrop-blur-md">
                         {flavor.tag}
                       </span>
-                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors">
+                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors bg-black/20 backdrop-blur-sm">
                         <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
                       </div>
                     </div>
@@ -116,7 +138,7 @@ export default function FlavorCards() {
                     </p>
                   </div>
 
-                  <p className="text-gray-300 text-sm leading-relaxed font-light group-hover:text-gray-200 transition-colors">
+                  <p className="text-gray-300 text-sm leading-relaxed font-light group-hover:text-white transition-colors">
                     {flavor.description}
                   </p>
                 </div>

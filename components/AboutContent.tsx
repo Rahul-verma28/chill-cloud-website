@@ -31,7 +31,7 @@ export default function AboutContent() {
                         <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-6 block">
                             The Chillcloud Legacy
                         </span>
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+                        <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
                             Defining <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Artisanal</span> Mastery
                         </h1>
                         <p className="max-w-3xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed">
