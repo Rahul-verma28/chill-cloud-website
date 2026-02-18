@@ -160,7 +160,7 @@ export default function Navigation() {
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { label: 'Products', href: '/products' },
-    { label: 'Flavors', href: '/#flavors' },
+    // { label: 'Flavors', href: '/#flavors' },
     { label: 'Contact', href: '/contact' },
   ]
 
