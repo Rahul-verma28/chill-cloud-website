@@ -66,7 +66,7 @@ export default function ProductCatalog({ isHomePage = false }: ProductCatalogPro
                 </div>
 
                 {/* Product Grid - Smaller Cards (4 columns on large screens) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <AnimatePresence mode="popLayout">
                         {filteredProducts.map((product, idx) => (
                             <ProductCard key={product.id} product={product} index={idx} />
