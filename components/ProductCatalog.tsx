@@ -23,28 +23,70 @@ export default function ProductCatalog({ isHomePage = false }: ProductCatalogPro
         return isHomePage ? list.slice(0, 8) : list
     }, [activeCategory, isHomePage])
 
+    const categoryContent: Record<typeof CATEGORIES[number], { label: string; title: string; highlight: string; description: string }> = {
+        'All': {
+            label: '',
+            title: 'Flavours are vibes',
+            highlight: 'Choose yours',
+            description: 'Explore the full range of our hand-crafted luxury products — from Cigrolls and Cones to Rolling Papers and Slims.'
+        },
+        'Cigrolls': {
+            label: 'Handrolled Excellence',
+            title: 'Flavored',
+            highlight: 'Ciga-Rolls',
+            description: 'Every cigroll is designed for balance, smoothness, and a satisfying finish — elevating every moment with effortless cool.'
+        },
+        'Cones': {
+            label: 'Pre-Rolled Perfection',
+            title: 'Pre-Rolled',
+            highlight: 'Cones',
+            description: 'Precision-crafted pre-rolled cones in Brown, White, and Flavored Jar variants. Ready for the perfect session.'
+        },
+        'Rolling Paper': {
+            label: 'Ultra-Thin Craftsmanship',
+            title: 'Rolling',
+            highlight: 'Papers',
+            description: 'Crafted with precision and care, every sheet enhances your smoking experience with elegance and consistency.'
+        },
+        'Slims': {
+            label: 'Refined & Elegant',
+            title: 'Flavored',
+            highlight: 'Slims',
+            description: 'Each Slim is designed for perfect balance, smoothness, and a satisfying finish — elevating every moment with effortless cool.'
+        }
+    }
+
+    const currentContent = categoryContent[activeCategory]
+
     return (
         <section className="py-24 bg-gradient-to-t from-[#12100E] via-[#0D0D0D] to-[black]" id="catalog">
             <div className="max-w-7xl mx-auto px-6">
-                {/* Header */}
+                {/* Dynamic Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
                     <div className="max-w-2xl">
-                        <motion.span
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            className="text-[#D4AF37] text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block"
-                        >
-                            The Full Collection
-                        </motion.span>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-                            style={{ fontFamily: 'var(--font-playfair)' }}
-                        >
-                            Elite Artisanal <span className="italic text-[#D4AF37]">Selections</span>
-                        </motion.h2>
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeCategory}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <span className="text-[#D4AF37] text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">
+                                    {currentContent.label}
+                                </span>
+                                <h2
+                                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                                    style={{ fontFamily: 'var(--font-playfair)' }}
+                                >
+                                    {currentContent.title}{' '}
+                                    <span className="italic text-[#D4AF37]">{currentContent.highlight}</span>
+                                </h2>
+                                <p className="mt-4 text-white/50 text-sm md:text-base font-light leading-relaxed max-w-xl">
+                                    {currentContent.description}
+                                </p>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -85,7 +127,7 @@ export default function ProductCatalog({ isHomePage = false }: ProductCatalogPro
                             href="/products"
                             className="inline-flex items-center gap-3 px-10 py-4 bg-transparent border border-[#D4AF37] text-[#D4AF37] font-bold text-xs tracking-[.2em] uppercase rounded-full hover:bg-[#D4AF37] hover:text-black transition-all duration-500 group"
                         >
-                            View Full Collection <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                            View All Products <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                         </Link>
                     </motion.div>
                 )}

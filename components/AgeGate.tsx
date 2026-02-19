@@ -199,7 +199,7 @@ export default function AgeGate() {
 
                             <div className="relative z-10">
                                 {/* Branding */}
-                                <div className="flex justify-center">
+                                {/* <div className="flex justify-center">
                                     <div className="relative w-80 h-60">
                                         <Image
                                             src="/Logo-white.png"
@@ -208,15 +208,8 @@ export default function AgeGate() {
                                             className="object-contain"
                                         />
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 px-2 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-                                    Welcome
-                                    {/* <span className=" text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37]">Chillcloud</span> */}
-                                </h1>
-                                <span className="text-[#D4AF37] text-xs font-bold tracking-[0.5em] uppercase block">
-                                    Join the Chill
-                                </span>
                                 <div className="flex justify-center">
                                     <div className="relative w-96 h-40">
                                         <Image
@@ -227,6 +220,13 @@ export default function AgeGate() {
                                         />
                                     </div>
                                 </div>
+                                <span className="text-[#D4AF37] mb-4 text-xs font-bold tracking-[0.5em] uppercase block">
+                                    Join the Chill
+                                </span>
+                                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 px-2 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+                                    Welcome
+                                    {/* <span className=" text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37]">Chillcloud</span> */}
+                                </h1>
 
                                 <p className="text-gray-300 text-base md:text-lg font-light leading-relaxed mb-12 max-w-xl mx-auto">
                                     {/* The products on this site are intended for tobacco consumers <span className="text-white font-medium">21 years of age or older</span>. Please verify your age. */}

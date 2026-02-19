@@ -42,11 +42,11 @@ export default function ProductsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
-                            Collections
-                        </span>
+                        {/* <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
+                            Products
+                        </span> */}
                         <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
-                            Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Collections</span>
+                            Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Products</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light">
                             Discover the pinnacle of artisanal craftsmanship. Each piece is a testament to our dedication to quality, flavor, and the elite lifestyle.

@@ -9,26 +9,26 @@ import Branding from './branding'
 export default function ContactContent() {
     const contactInfo = [
         {
+            icon: <MapPin className="w-6 h-6" />,
+            label: 'Reach us at',
+            value: 'G-106, Sector-63, Noida',
+            desc: 'Uttar Pradesh - 201301',
+            href: 'https://maps.google.com'
+        },
+        {
             icon: <Phone className="w-6 h-6" />,
-            label: 'Direct Concierge',
-            value: '+91 8092-3238-05',
+            label: 'Call us at',
+            value: '+91 80923-23805',
             desc: 'Mon-Sat, 10am - 7pm',
             href: 'tel:+918092323805'
         },
         {
             icon: <Mail className="w-6 h-6" />,
-            label: 'Email Inquiries',
-            value: 'contact@chillcloud.in',
+            label: 'Email Us',
+            value: 'info@chillcloud.in',
             desc: 'Response within 24 hours',
             href: 'mailto:contact@chillcloud.in'
         },
-        {
-            icon: <MapPin className="w-6 h-6" />,
-            label: 'Corporate Gallery',
-            value: 'G-247, Sector-63, Noida',
-            desc: 'Uttar Pradesh - 201301',
-            href: 'https://maps.google.com'
-        }
     ]
 
     return (
@@ -42,15 +42,15 @@ export default function ContactContent() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
+                        {/* <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
                             Contact Concierge
-                        </span>
+                        </span> */}
                         <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
-                            Connect with <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Excellence</span>
+                            Connect with <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Us</span>
                         </h1>
-                        <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light">
+                        {/* <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light">
                             Experience personalized luxury. Reach out for bespoke inquiries, wholesale partnerships, or artisanal consultations.
-                        </p>
+                        </p> */}
                     </motion.div>
                 </div>
             </section>
@@ -67,7 +67,7 @@ export default function ContactContent() {
                             transition={{ delay: 0.2 }}
                             className="lg:col-span-5 space-y-6"
                         >
-                            <h2 className="text-3xl font-bold mb-8" style={{ fontFamily: 'var(--font-playfair)' }}>Corporate Details</h2>
+                            <h2 className="text-3xl font-bold mb-8" style={{ fontFamily: 'var(--font-playfair)' }}>Address</h2>
                             {contactInfo.map((info, i) => (
                                 <a
                                     key={i}
@@ -80,12 +80,12 @@ export default function ContactContent() {
                                     <div>
                                         <p className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold mb-2">{info.label}</p>
                                         <p className="text-xl font-bold mb-1 text-white group-hover:text-[#D4AF37] transition-colors">{info.value}</p>
-                                        <p className="text-sm text-gray-500 mt-1">{info.desc}</p>
+                                        {/* <p className="text-sm text-gray-500 mt-1">{info.desc}</p> */}
                                     </div>
                                 </a>
                             ))}
 
-                            <div className="p-8 bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/10 rounded-[2rem] mt-12">
+                            {/* <div className="p-8 bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/10 rounded-[2rem] mt-12">
                                 <div className="flex items-center gap-4 mb-4">
                                     <Clock className="w-5 h-5 text-[#D4AF37]" />
                                     <span className="text-xs font-bold uppercase tracking-widest text-white">Office Hours</span>
@@ -100,7 +100,7 @@ export default function ContactContent() {
                                         <p className="text-white font-medium">By Appointment</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </motion.div>
 
                         {/* Contact Form */}
@@ -114,8 +114,8 @@ export default function ContactContent() {
 
                             <div className="relative z-10">
                                 <div className="mb-10">
-                                    <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>Send Message</h3>
-                                    <p className="text-gray-500">Your vision is our priority. Share your thoughts with us.</p>
+                                    <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>Write to us</h3>
+                                    <p className="text-gray-500">Fill out the form below, and a Chillcloud representative will reach out to you within 12–24 hours.</p>
                                 </div>
 
                                 <form className="space-y-6">

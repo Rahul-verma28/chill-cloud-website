@@ -161,7 +161,7 @@ export default function Navigation() {
     { label: 'About Us', href: '/about' },
     { label: 'Products', href: '/products' },
     // { label: 'Flavors', href: '/#flavors' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Contact Us', href: '/contact' },
   ]
 
   return (
@@ -171,22 +171,30 @@ export default function Navigation() {
         ? "bg-[#12100E]/90 backdrop-blur-xl border-white/5 py-4"
         : "bg-transparent border-transparent py-6"
     )}>
-      <div className="max-w-7xl mx-auto px-6">
+      <div className=" mx-auto px-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <Link href="/" className="flex items-center group cursor-pointer">
             <div className="flex items-center group cursor-pointer">
-              <div className="relative w-20 h-20 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-32 h-32 transition-transform duration-500 group-hover:scale-105">
                 <Image
                   src="/Logo-white.png"
                   alt="Chillcloud"
-                  width={100}
-                  height={100}
+                  fill
                   className="object-contain"
                   priority
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="relative w-72 h-20 transition-transform duration-500 group-hover:scale-105">
+                <Image
+                  src="/chill-cloud-gate-02.png"
+                  alt="Chillcloud"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              {/* <div className="flex flex-col">
                 <span className={cn(
                   "text-2xl font-bold tracking-tight transition-colors duration-500 text-white"
                 )} style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -195,7 +203,7 @@ export default function Navigation() {
                 <span className="text-[10px] tracking-[0.4em] font-bold text-[#D4AF37] uppercase -mt-1 px-1">
                   Elite Standard
                 </span>
-              </div>
+              </div> */}
             </div>
           </Link>
 
@@ -211,9 +219,9 @@ export default function Navigation() {
                 <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#d4af37] transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
-            <Link href="/products" className="ml-4 px-8 py-3 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-black text-[10px] font-bold tracking-widest rounded-full hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:scale-105 uppercase">
+            {/* <Link href="/products" className="ml-4 px-8 py-3 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] text-black text-[10px] font-bold tracking-widest rounded-full hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:scale-105 uppercase">
               Shop Now
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}

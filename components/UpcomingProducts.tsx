@@ -55,7 +55,7 @@ export default function UpcomingProducts() {
                         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8 tracking-wide">
                             UPCOMING LUXURY <br />
                             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">
-                                COLLECTION
+                                Products
                             </span>
                         </h2>
                         <div className="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto" />

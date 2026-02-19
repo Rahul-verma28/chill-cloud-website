@@ -3,24 +3,24 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const links = {
     navigation: [
-      { name: 'Home', href: '#home' },
-      { name: 'Products', href: '#products' },
-      { name: 'About Us', href: '#about' },
-      { name: 'Flavors', href: '#flavors' },
-      { name: 'Infrastructure', href: '#infrastructure' }
+      { name: 'Home', href: '/' },
+      { name: 'Products', href: '/products' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact Us', href: '/contact' }
     ],
-    collection: [
-      { name: 'Luxury Ciga-Rolls', href: '#' },
-      { name: 'Artisan Cones', href: '#' },
-      { name: 'Slim Series', href: '#' },
-      { name: 'Gold Collection', href: '#' },
-      { name: 'Elite Accessories', href: '#' }
+    Products: [
+      { name: 'Luxury Ciga-Rolls', href: '/products' },
+      { name: 'Artisan Cones', href: '/products' },
+      { name: 'Slim Series', href: '/products' },
+      { name: 'Gold Collection', href: '/products' },
+      { name: 'Elite Accessories', href: '/products' }
     ]
   }
 
@@ -62,7 +62,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-12 mb-20">
 
           {/* Brand Column */}
           <div className="space-y-4">
@@ -97,45 +97,45 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Discovery</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Site Navigation</h4>
             <ul className="space-y-4">
               {links.navigation.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
+                  <Link href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Catalog */}
-          <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Collections</h4>
+          {/* <div className="space-y-8">
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Our Products</h4>
             <ul className="space-y-4">
-              {links.collection.map((item) => (
+              {links.Products.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
+                  <Link href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Details */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Concierge</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Connect with us</h4>
             <div className="space-y-6">
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Inquiries</p>
-                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">+91 8092-3238-05</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Call us at</p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">+91 80923-23805</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">
@@ -143,8 +143,8 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Email</p>
-                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">contact@chillcloud.in</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Email us</p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">info@chillcloud.in</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">
@@ -152,8 +152,8 @@ export default function Footer() {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Location</p>
-                  <p className="text-sm font-medium leading-relaxed">G-247, Sector-63,<br />Noida, UP 201301</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Address</p>
+                  <p className="text-sm font-medium leading-relaxed">G-106, Sector-63,<br />Noida, UP 201301</p>
                 </div>
               </div>
             </div>
@@ -166,13 +166,13 @@ export default function Footer() {
             <p className="text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold">
               © {currentYear} CHILLCLOUD INDIA LLP
             </p>
-            <div className="flex gap-8 text-[11px] uppercase tracking-widest font-bold">
+            {/* <div className="flex gap-8 text-[11px] uppercase tracking-widest font-bold">
               <a href="#" className="text-gray-400 hover:text-[#d4af37] transition-colors">Privacy</a>
               <a href="#" className="text-gray-400 hover:text-[#d4af37] transition-colors">Terms</a>
-            </div>
+            </div> */}
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Artisan Certified</span>
             <div className="w-8 h-[1px] bg-[#d4af37]/30" />
             <motion.div
@@ -180,7 +180,7 @@ export default function Footer() {
               transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               className="w-5 h-5 rounded-full border border-[#d4af37]/40 border-t-[#d4af37]"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

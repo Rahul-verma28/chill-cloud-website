@@ -8,14 +8,58 @@ import { cn } from '@/lib/utils'
 
 const SLIDES = [
   {
+    image: '/hero/hero-05.png',
+    title: 'ELITE ',
+    highlight: 'PACKAGING',
+    subtitle: 'THE GOLD STANDARD',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    buttons: [
+      { text: 'Explore Now', primary: true },
+      { text: 'Process', primary: false }
+    ]
+  },
+  {
+    image: '/hero/hero-06.png',
+    title: 'ELITE ',
+    highlight: 'PACKAGING',
+    subtitle: 'THE GOLD STANDARD',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    buttons: [
+      { text: 'Explore Now', primary: true },
+      { text: 'Process', primary: false }
+    ]
+  },
+  {
     image: '/hero/hero-04.png',
+    title: 'ELITE ',
+    highlight: 'PACKAGING',
+    subtitle: 'THE GOLD STANDARD',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    buttons: [
+      { text: 'Explore Now', primary: true },
+      { text: 'Process', primary: false }
+    ]
+  },
+  // {
+  //   image: '/hero/hero-03.png',
+  //   title: 'ELITE ',
+  //   highlight: 'PACKAGING',
+  //   subtitle: 'THE GOLD STANDARD',
+  //   description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+  //   buttons: [
+  //     { text: 'Explore Now', primary: true },
+  //     { text: 'Process', primary: false }
+  //   ]
+  // },
+  {
+    image: '/hero/hero-07.jpeg',
     title: 'CIGA-ROLLS',
     subtitle: 'THE GOLD STANDARD',
     description: 'CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.',
     badge: 'LUXURY COLLECTION'
   },
   {
-    image: '/hero/hero-06.png',
+    image: '/hero/hero-08.jpeg',
     title: 'ELITE ',
     highlight: 'CHILL',
     subtitle: 'PREMIUM SHOWCASE',
@@ -27,6 +71,17 @@ const SLIDES = [
   },
   {
     image: '/hero/hero-05.png',
+    title: 'ELITE ',
+    highlight: 'PACKAGING',
+    subtitle: 'THE GOLD STANDARD',
+    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    buttons: [
+      { text: 'Explore Now', primary: true },
+      { text: 'Process', primary: false }
+    ]
+  },
+  {
+    image: '/hero/hero-10.png',
     title: 'ELITE ',
     highlight: 'PACKAGING',
     subtitle: 'THE GOLD STANDARD',
@@ -57,7 +112,7 @@ export default function Hero() {
 
     const interval = setInterval(() => {
       emblaApi.scrollNext()
-    }, 8000)
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [emblaApi, onSelect])
@@ -87,7 +142,7 @@ export default function Hero() {
               </div>
 
               {/* Slide Content - Centered Layout for Wide Look */}
-              <div className="relative max-w-7xl mx-auto z-10 flex h-full items-center px-6">
+              {/* <div className="relative max-w-7xl mx-auto z-10 flex h-full items-center px-6">
                 <div className="max-w-4xl">
                   {slide.subtitle && (
                     <p className={cn(
@@ -140,7 +195,7 @@ export default function Hero() {
                     )}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
