@@ -12,27 +12,10 @@ import Branding from '@/components/branding'
 import Footer from '@/components/footer'
 
 export default function UnderConstruction() {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [email, setEmail] = useState('')
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
-  const handleNotify = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle email notification logic here
-    console.log('Email submitted:', email)
-    alert('Thank you! We will notify you when we launch.')
-    setEmail('')
-  }
-
 
   return (
     <div className="bg-[#12100E] text-foreground overflow-hidden">
       <Navigation />
-      {/* {isLoaded && (
-                  <> */}
       <Hero />
       <AboutSection />
       {/* <ProductShowcase /> */}
@@ -41,8 +24,6 @@ export default function UnderConstruction() {
       <UpcomingProducts />
       <Branding />
       <Footer />
-      {/* </>
-              )} */}
     </div>
   )
 

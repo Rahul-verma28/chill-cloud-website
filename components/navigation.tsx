@@ -167,16 +167,16 @@ export default function Navigation() {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
-      scrolled
-        ? "bg-[#12100E]/90 backdrop-blur-xl border-white/5 py-4"
+      scrolled || isOpen
+        ? "bg-[#12100E] backdrop-blur-2xl border-white/5 py-4"
         : "bg-transparent border-transparent py-6"
     )}>
-      <div className=" mx-auto px-10">
+      <div className="mx-auto px-3 md:px-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <Link href="/" className="flex items-center group cursor-pointer">
             <div className="flex items-center group cursor-pointer">
-              <div className="relative w-32 h-32 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-24 md:w-28 h-24 md:h-28">
                 <Image
                   src="/Logo-white.png"
                   alt="Chillcloud"
@@ -185,7 +185,7 @@ export default function Navigation() {
                   priority
                 />
               </div>
-              <div className="relative w-72 h-20 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-40 md:w-56 h-20">
                 <Image
                   src="/chill-cloud-gate-02.png"
                   alt="Chillcloud"
@@ -250,7 +250,7 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-xl font-bold tracking-widest text-white/80 hover:text-[#d4af37] transition-colors"
+                className="text-lg font-bold tracking-widest text-white/80 hover:text-[#d4af37] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <motion.span
@@ -262,9 +262,9 @@ export default function Navigation() {
                 </motion.span>
               </Link>
             ))}
-            <Link href="/products" className="mt-4 w-full px-10 py-4 bg-[#d4af37] text-black font-bold tracking-widest rounded-full uppercase text-xs text-center" onClick={() => setIsOpen(false)}>
+            {/* <Link href="/products" className="mt-4 w-full px-10 py-4 bg-[#d4af37] text-black font-bold tracking-widest rounded-full uppercase text-xs text-center" onClick={() => setIsOpen(false)}>
               Shop Now
-            </Link>
+            </Link> */}
           </motion.div>
         )}
       </AnimatePresence>

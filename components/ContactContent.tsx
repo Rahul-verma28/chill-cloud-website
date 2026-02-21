@@ -43,14 +43,14 @@ export default function ContactContent() {
                         transition={{ duration: 0.8 }}
                     >
                         {/* <span className="text-[#D4AF37] text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
-                            Contact Concierge
+                            Contact
                         </span> */}
                         <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                             Connect with <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] animate-shimmer bg-[length:200%_auto]">Us</span>
                         </h1>
-                        {/* <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light">
-                            Experience personalized luxury. Reach out for bespoke inquiries, wholesale partnerships, or artisanal consultations.
-                        </p> */}
+                        <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light">
+                            Got a question or looking to partner? Drop us a line—we&apos;d love to hear from you.
+                        </p>
                     </motion.div>
                 </div>
             </section>
@@ -108,12 +108,12 @@ export default function ContactContent() {
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="lg:col-span-7 bg-white/5 border border-white/5 rounded-[3rem] p-8 md:p-12 relative overflow-hidden"
+                            className="lg:col-span-7 bg-white/5 border border-white/5 rounded-[2rem] p-5 md:p-12 relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-bl-[100%] pointer-events-none" />
 
                             <div className="relative z-10">
-                                <div className="mb-10">
+                                <div className="mb-6">
                                     <h3 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>Write to us</h3>
                                     <p className="text-gray-500">Fill out the form below, and a Chillcloud representative will reach out to you within 12–24 hours.</p>
                                 </div>
@@ -185,7 +185,7 @@ export default function ContactContent() {
                             allowFullScreen={true}
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            className="grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                        // className="grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                         />
                         {/* Overlay to catch initial clicks/scrolls if desired, or just styling */}
                         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" />

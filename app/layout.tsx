@@ -35,6 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/Logo.png" />
+        <link rel="apple-touch-icon" href="/Logo.png" />
+      </head>
       <body className="font-sans antialiased bg-background text-foreground">
         <AgeGate />
         {children}

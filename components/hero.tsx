@@ -118,7 +118,7 @@ export default function Hero() {
   }, [emblaApi, onSelect])
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] w-full bg-[#0D0B09]">
+    <section id="home" className="relative h-[60vh] min-h-[480px] md:min-h-[550px] lg:h-screen lg:min-h-[700px] w-full bg-[#0D0B09]">
       <div className="h-full w-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
@@ -130,15 +130,16 @@ export default function Hero() {
                   alt={slide.title}
                   fill
                   quality={100}
+                  sizes="100vw"
                   className={cn(
-                    "object-fill transition-transform duration-[20000ms] ease-out",
-                    selectedIndex === index ? "scale-105" : "scale-100"
+                    "object-cover object-center transition-transform duration-[20000ms] ease-out",
+                    selectedIndex === index ? "scale-110 md:scale-105" : "scale-100"
                   )}
                   priority
                 />
-                {/* Sophisticated Vignette Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/10" />
+                {/* Sophisticated Vignette Gradient - Enhanced for mobile */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent md:from-black md:via-black/10 md:to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20 md:from-black md:via-transparent md:to-black/10" />
               </div>
 
               {/* Slide Content - Centered Layout for Wide Look */}
@@ -201,33 +202,33 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Slider Controls */}
-      <div className="absolute bottom-10 right-10 z-20 flex gap-4">
+      {/* Slider Controls - Responsive sizing */}
+      <div className="absolute bottom-6 right-4 z-20 flex gap-2 md:bottom-10 md:right-10 md:gap-4">
         <button
           onClick={scrollPrev}
-          className="group flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-primary hover:border-primary hover:text-black"
+          className="group flex h-10 w-10 md:h-14 md:w-14 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition-all hover:bg-primary hover:border-primary hover:text-black"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-6 w-6 transition-transform group-hover:-translate-x-1" />
+          <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 transition-transform group-hover:-translate-x-1" />
         </button>
         <button
           onClick={scrollNext}
-          className="group flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white backdrop-blur-md transition-all hover:bg-primary hover:border-primary hover:text-black"
+          className="group flex h-10 w-10 md:h-14 md:w-14 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-md transition-all hover:bg-primary hover:border-primary hover:text-black"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+          <ChevronRight className="h-4 w-4 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-12 left-1/2 z-20 flex -translate-x-1/2 gap-3 md:left-24 md:translate-x-0">
+      {/* Slide Indicators - Responsive */}
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2 md:bottom-12 md:left-24 md:translate-x-0 md:gap-3">
         {SLIDES.map((_, index) => (
           <button
             key={index}
             onClick={() => emblaApi && emblaApi.scrollTo(index)}
             className={cn(
-              "h-1.5 transition-all duration-500 rounded-full",
-              selectedIndex === index ? "w-12 bg-primary" : "w-6 bg-white/30"
+              "h-1 md:h-1.5 transition-all duration-500 rounded-full",
+              selectedIndex === index ? "w-8 md:w-12 bg-primary" : "w-4 md:w-6 bg-white/30"
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -235,7 +236,7 @@ export default function Hero() {
       </div>
 
       {/* Decorative Overlays */}
-      <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-black to-transparent z-0" />
+      <div className="absolute bottom-0 left-0 h-20 md:h-32 w-full bg-gradient-to-t from-black to-transparent z-0" />
     </section>
   )
 }

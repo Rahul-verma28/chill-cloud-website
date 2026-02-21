@@ -30,7 +30,7 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-xs uppercase tracking-[0.4em] text-[#d4af37] font-semibold mb-6 px-6 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 z-10"
+                className="text-xs uppercase tracking-[0.1em] md:tracking-[0.4em] text-[#d4af37] font-semibold mb-6 px-6 py-2 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5 z-10"
             >
                 Founded in 2024 • India's Leading Brand
             </motion.p>
@@ -47,7 +47,7 @@ const AboutSection = () => {
                 Crafted for <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">Quality</span>, Built for <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f4d03f] to-[#d4af37] animate-shimmer bg-[length:200%_auto]">Experience</span>
             </motion.h2>
 
-            <div className="w-80 h-[0.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-12 z-10" />
+            <div className="w-80 h-[0.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-6 md:mb-12 z-10" />
 
             {/* Description */}
             <motion.div
@@ -55,7 +55,7 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="max-w-5xl px-6 space-y-5 z-10"
+                className="max-w-5xl px-3 sm:px-6 space-y-5 z-10"
             >
                 <p className="text-gray-200 text-lg md:text-xl leading-relaxed font-light">
                     Chillcloud India LLP is India&apos;s leading manufacturer, wholesaler, and trader of premium smoking products — including hand-rolled Ciga-Rolls, Slims, pre-rolled cones, and premium rolling papers. As innovators in the industry, Chillcloud has become synonymous with quality, craftsmanship, and an elevated smoking experience.
