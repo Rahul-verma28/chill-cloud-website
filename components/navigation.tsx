@@ -130,47 +130,44 @@
 //   )
 // }
 
+"use client";
 
-
-
-
-
-
-'use client'
-
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { cn } from '@/lib/utils'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Products', href: '/products' },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Products", href: "/products" },
+    { label: "Our Presence", href: "/presence" },
     // { label: 'Flavors', href: '/#flavors' },
-    { label: 'Contact Us', href: '/contact' },
-  ]
+    { label: "Contact Us", href: "/contact" },
+  ];
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
-      scrolled || isOpen
-        ? "bg-[#12100E] backdrop-blur-2xl border-white/5 py-4"
-        : "bg-transparent border-transparent py-6"
-    )}>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
+        scrolled || isOpen
+          ? "bg-[#12100E] backdrop-blur-2xl border-white/5 py-4"
+          : "bg-transparent border-transparent py-6",
+      )}
+    >
       <div className="mx-auto px-3 md:px-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
@@ -230,9 +227,24 @@ export default function Navigation() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <div className={cn("w-6 h-0.5 bg-[#d4af37] transition-all", isOpen ? "rotate-45 translate-y-2" : "")} />
-            <div className={cn("w-4 h-0.5 bg-[#d4af37] self-end transition-all", isOpen ? "opacity-0" : "")} />
-            <div className={cn("w-6 h-0.5 bg-[#d4af37] transition-all", isOpen ? "-rotate-45 -translate-y-2" : "")} />
+            <div
+              className={cn(
+                "w-6 h-0.5 bg-[#d4af37] transition-all",
+                isOpen ? "rotate-45 translate-y-2" : "",
+              )}
+            />
+            <div
+              className={cn(
+                "w-4 h-0.5 bg-[#d4af37] self-end transition-all",
+                isOpen ? "opacity-0" : "",
+              )}
+            />
+            <div
+              className={cn(
+                "w-6 h-0.5 bg-[#d4af37] transition-all",
+                isOpen ? "-rotate-45 -translate-y-2" : "",
+              )}
+            />
           </button>
         </div>
       </div>
@@ -269,11 +281,8 @@ export default function Navigation() {
         )}
       </AnimatePresence>
     </nav>
-  )
+  );
 }
-
-
-
 
 // 'use client'
 
@@ -403,4 +412,3 @@ export default function Navigation() {
 //     </nav>
 //   )
 // }
-

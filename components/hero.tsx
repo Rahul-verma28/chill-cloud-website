@@ -1,44 +1,47 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useCallback } from 'react'
-import Image from 'next/image'
-import useEmblaCarousel from 'embla-carousel-react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const SLIDES = [
   {
-    image: '/hero/hero-05.png',
-    title: 'ELITE ',
-    highlight: 'PACKAGING',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-05.png",
+    title: "ELITE ",
+    highlight: "PACKAGING",
+    subtitle: "THE GOLD STANDARD",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Process', primary: false }
-    ]
+      { text: "Explore Now", primary: true },
+      { text: "Process", primary: false },
+    ],
   },
   {
-    image: '/hero/hero-06.png',
-    title: 'ELITE ',
-    highlight: 'PACKAGING',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-06.png",
+    title: "ELITE ",
+    highlight: "PACKAGING",
+    subtitle: "THE GOLD STANDARD",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Process', primary: false }
-    ]
+      { text: "Explore Now", primary: true },
+      { text: "Process", primary: false },
+    ],
   },
   {
-    image: '/hero/hero-04.png',
-    title: 'ELITE ',
-    highlight: 'PACKAGING',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-04.png",
+    title: "ELITE ",
+    highlight: "PACKAGING",
+    subtitle: "THE GOLD STANDARD",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Process', primary: false }
-    ]
+      { text: "Explore Now", primary: true },
+      { text: "Process", primary: false },
+    ],
   },
   // {
   //   image: '/hero/hero-03.png',
@@ -52,77 +55,92 @@ const SLIDES = [
   //   ]
   // },
   {
-    image: '/hero/hero-07.jpeg',
-    title: 'CIGA-ROLLS',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.',
-    badge: 'LUXURY COLLECTION'
+    image: "/hero/hero-07.jpeg",
+    title: "CIGA-ROLLS",
+    subtitle: "THE GOLD STANDARD",
+    description: "CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.",
+    badge: "LUXURY COLLECTION",
   },
   {
-    image: '/hero/hero-08.jpeg',
-    title: 'ELITE ',
-    highlight: 'CHILL',
-    subtitle: 'PREMIUM SHOWCASE',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-08.jpeg",
+    title: "ELITE ",
+    highlight: "CHILL",
+    subtitle: "PREMIUM SHOWCASE",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Concierge', primary: false }
-    ]
+      { text: "Explore Now", primary: true },
+      { text: "Concierge", primary: false },
+    ],
   },
   {
-    image: '/hero/hero-05.png',
-    title: 'ELITE ',
-    highlight: 'PACKAGING',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-05.png",
+    title: "ELITE ",
+    highlight: "PACKAGING",
+    subtitle: "THE GOLD STANDARD",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Process', primary: false }
-    ]
+      { text: "Explore Now", primary: true },
+      { text: "Process", primary: false },
+    ],
   },
   {
-    image: '/hero/hero-10.png',
-    title: 'ELITE ',
-    highlight: 'PACKAGING',
-    subtitle: 'THE GOLD STANDARD',
-    description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+    image: "/hero/hero-10.png",
+    title: "ELITE ",
+    highlight: "PACKAGING",
+    subtitle: "THE GOLD STANDARD",
+    description:
+      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
     buttons: [
-      { text: 'Explore Now', primary: true },
-      { text: 'Process', primary: false }
-    ]
-  }
-]
+      { text: "Explore Now", primary: true },
+      { text: "Process", primary: false },
+    ],
+  },
+];
 
 export default function Hero() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  );
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi, setSelectedIndex])
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
 
   useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on('select', onSelect)
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
 
     const interval = setInterval(() => {
-      emblaApi.scrollNext()
-    }, 3000)
+      emblaApi.scrollNext();
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [emblaApi, onSelect])
+    return () => clearInterval(interval);
+  }, [emblaApi, onSelect]);
 
   return (
-    <section id="home" className="relative h-[60vh] min-h-[480px] md:min-h-[550px] lg:h-screen lg:min-h-[700px] w-full bg-[#0D0B09]">
+    <section
+      id="home"
+      className="relative h-[60vh] min-h-[480px] md:min-h-[550px] lg:h-screen lg:min-h-[700px] w-full bg-[#0D0B09]"
+    >
       <div className="h-full w-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
-            <div key={index} className="relative min-w-full flex-[0_0_100%] overflow-hidden">
+            <div
+              key={index}
+              className="relative min-w-full flex-[0_0_100%] overflow-hidden"
+            >
               {/* Background Image with Slow Cinematic Zoom */}
               <div className="absolute inset-0">
                 <Image
@@ -133,13 +151,15 @@ export default function Hero() {
                   sizes="100vw"
                   className={cn(
                     "object-cover object-center transition-transform duration-[20000ms] ease-out",
-                    selectedIndex === index ? "scale-110 md:scale-105" : "scale-100"
+                    selectedIndex === index
+                      ? "scale-110 md:scale-105"
+                      : "scale-100",
                   )}
                   priority
                 />
                 {/* Sophisticated Vignette Gradient - Enhanced for mobile */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent md:from-black md:via-black/10 md:to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20 md:from-black md:via-transparent md:to-black/10" />
+                {/* <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent md:from-black md:via-black/10 md:to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20 md:from-black md:via-transparent md:to-black/10" /> */}
               </div>
 
               {/* Slide Content - Centered Layout for Wide Look */}
@@ -228,7 +248,9 @@ export default function Hero() {
             onClick={() => emblaApi && emblaApi.scrollTo(index)}
             className={cn(
               "h-1 md:h-1.5 transition-all duration-500 rounded-full",
-              selectedIndex === index ? "w-8 md:w-12 bg-primary" : "w-4 md:w-6 bg-white/30"
+              selectedIndex === index
+                ? "w-8 md:w-12 bg-primary"
+                : "w-4 md:w-6 bg-white/30",
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -238,5 +260,5 @@ export default function Hero() {
       {/* Decorative Overlays */}
       <div className="absolute bottom-0 left-0 h-20 md:h-32 w-full bg-gradient-to-t from-black to-transparent z-0" />
     </section>
-  )
+  );
 }

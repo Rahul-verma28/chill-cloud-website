@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Navigation from '@/components/navigation'
-import Hero from '@/components/hero'
-import AboutSection from '@/components/AboutSection'
-import ProductCatalog from '@/components/ProductCatalog'
-import FlavorCards from '@/components/flavor-cards'
-import UpcomingProducts from '@/components/UpcomingProducts'
-import Branding from '@/components/branding'
-import Footer from '@/components/footer'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Navigation from "@/components/navigation";
+import Hero from "@/components/hero";
+import FeaturesBar from "@/components/FeaturesBar";
+import AboutSection from "@/components/AboutSection";
+import ProductCatalog from "@/components/ProductCatalog";
+import FlavorCards from "@/components/flavor-cards";
+import UpcomingProducts from "@/components/UpcomingProducts";
+import Branding from "@/components/branding";
+import Footer from "@/components/footer";
 
 export default function UnderConstruction() {
-
   return (
     <div className="bg-[#12100E] text-foreground overflow-hidden">
       <Navigation />
@@ -22,10 +22,11 @@ export default function UnderConstruction() {
       <ProductCatalog isHomePage={true} />
       {/* <FlavorCards /> */}
       <UpcomingProducts />
-      <Branding />
+      {/* <Branding /> */}
+      <FeaturesBar />
       <Footer />
     </div>
-  )
+  );
 
   // return (
   //   <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0a0a0a]">
@@ -48,7 +49,6 @@ export default function UnderConstruction() {
   //       <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-[#d4af37]/10 to-transparent rounded-full blur-3xl animate-float"></div>
   //       <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-[#d4af37]/10 to-transparent rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
   //     </div>
-
 
   //     {/* Main Content Container */}
   //     <div className={`relative z-10 flex flex-col min-h-screen transition-all duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>

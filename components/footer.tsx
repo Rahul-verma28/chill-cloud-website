@@ -1,32 +1,43 @@
-'use client'
+"use client";
 
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, ArrowUpRight } from 'lucide-react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  ArrowUpRight,
+} from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const links = {
     navigation: [
-      { name: 'Home', href: '/' },
-      { name: 'Products', href: '/products' },
-      { name: 'About Us', href: '/about' },
-      { name: 'Contact Us', href: '/contact' }
+      { name: "Home", href: "/" },
+      { name: "Products", href: "/products" },
+      { name: "About Us", href: "/about" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "Our Presence", href: "/presence" },
     ],
     Products: [
-      { name: 'Luxury Ciga-Rolls', href: '/products' },
-      { name: 'Artisan Cones', href: '/products' },
-      { name: 'Slim Series', href: '/products' },
-      { name: 'Gold Collection', href: '/products' },
-      { name: 'Elite Accessories', href: '/products' }
-    ]
-  }
+      { name: "Luxury Ciga-Rolls", href: "/products" },
+      { name: "Artisan Cones", href: "/products" },
+      { name: "Slim Series", href: "/products" },
+      { name: "Gold Collection", href: "/products" },
+      { name: "Elite Accessories", href: "/products" },
+    ],
+  };
 
   return (
-    <footer id="contact" className="relative text-white overflow-hidden border-t border-white/5 bg-[#0D0B09]">
-
+    <footer
+      id="contact"
+      className="relative text-white overflow-hidden border-t border-white/5 bg-[#0D0B09]"
+    >
       {/* Animated Brownish Gradient Layer */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#12100E] via-[#0D0D0D] to-[black]" />
@@ -36,12 +47,12 @@ export default function Footer() {
           animate={{
             x: [0, 100, 0],
             y: [0, 50, 0],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#D4AF37]/[0.05] rounded-full blur-[120px] pointer-events-none"
         />
@@ -50,12 +61,12 @@ export default function Footer() {
           animate={{
             x: [0, -100, 0],
             y: [0, -50, 0],
-            scale: [1, 1.3, 1]
+            scale: [1, 1.3, 1],
           }}
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-[#8B4513]/[0.08] rounded-full blur-[150px] pointer-events-none"
         />
@@ -63,7 +74,6 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-12 mb-20">
-
           {/* Brand Column */}
           <div className="space-y-4">
             <div className="flex items-center gap-1">
@@ -75,12 +85,17 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Playfair Display' }}>
+              <span
+                className="text-2xl font-bold tracking-tight"
+                style={{ fontFamily: "Playfair Display" }}
+              >
                 Chillcloud
               </span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-light">
-              Crafting premium experiences for the modern connoisseur. Our dedication to artisanal excellence defines the gold standard of relaxation.
+              Crafting premium experiences for the modern connoisseur. Our
+              dedication to artisanal excellence defines the gold standard of
+              relaxation.
             </p>
             <div className="flex gap-4">
               {[Facebook, Twitter, Instagram].map((Icon, i) => (
@@ -97,11 +112,16 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Site Navigation</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">
+              Site Navigation
+            </h4>
             <ul className="space-y-4">
               {links.navigation.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group">
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-white hover:font-bold transition-colors text-sm font-light flex items-center group"
+                  >
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-2 transition-all duration-300" />
                     {item.name}
                   </Link>
@@ -127,15 +147,21 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="space-y-8">
-            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">Connect with us</h4>
+            <h4 className="text-[#d4af37] text-sm font-bold tracking-[0.2em] uppercase">
+              Connect with us
+            </h4>
             <div className="space-y-6">
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37]/10 transition-colors">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Call us at</p>
-                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">+91 80923-23805</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">
+                    Call us at
+                  </p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">
+                    +91 80923-23805
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">
@@ -143,8 +169,12 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Email us</p>
-                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">info@chillcloud.in</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">
+                    Email us
+                  </p>
+                  <p className="text-sm font-medium hover:text-[#d4af37] transition-colors">
+                    info@chillcloud.in
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">
@@ -152,8 +182,14 @@ export default function Footer() {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Address</p>
-                  <p className="text-sm font-medium leading-relaxed">G-106, Sector-63,<br />Noida, UP 201301</p>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">
+                    Address
+                  </p>
+                  <p className="text-sm font-medium leading-relaxed">
+                    G-106, Sector-63,
+                    <br />
+                    Noida, UP 201301
+                  </p>
                 </div>
               </div>
             </div>
@@ -184,5 +220,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
