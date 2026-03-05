@@ -33,7 +33,7 @@ export default function PresenceContent() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/presence/our-presence.webp"
+              src="/presence/our-presence.png"
               alt="Global Presence"
               fill
               className="object-cover"

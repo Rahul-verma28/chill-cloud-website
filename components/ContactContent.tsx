@@ -1,20 +1,86 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Phone,
   Mail,
   MapPin,
-  Send,
-  MessageSquare,
-  Clock,
   ArrowRight,
+  Loader2,
+  CheckCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Branding from "./branding";
 
 export default function ContactContent() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear status message when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: "" });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: data.message,
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please check your connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -87,9 +153,9 @@ export default function ContactContent() {
               >
                 Address
               </h2>
-              {contactInfo.map((info, i) => (
+              {contactInfo.map((info) => (
                 <a
-                  key={i}
+                  key={info.label}
                   href={info.href}
                   className="group flex items-start gap-6 p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:border-[#D4AF37]/30 hover:bg-white/[0.08] transition-all duration-500"
                 >
@@ -149,55 +215,111 @@ export default function ContactContent() {
                   </p>
                 </div>
 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Status Message */}
+                  {submitStatus.type && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={cn(
+                        "p-4 rounded-2xl flex items-center gap-3",
+                        submitStatus.type === "success"
+                          ? "bg-green-500/10 border border-green-500/20 text-green-500"
+                          : "bg-red-500/10 border border-red-500/20 text-red-500"
+                      )}
+                    >
+                      {submitStatus.type === "success" && (
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                      )}
+                      <p className="text-sm">{submitStatus.message}</p>
+                    </motion.div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
+                      <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
                         Full Name
                       </label>
                       <input
+                        id="name"
                         type="text"
-                        className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isSubmitting}
+                        className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder="Enter your name"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
+                      <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
                         Email Address
                       </label>
                       <input
+                        id="email"
                         type="email"
-                        className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isSubmitting}
+                        className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder="your@email.com"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
+                    <label htmlFor="phone" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
                       Phone Number
                     </label>
                     <input
+                      id="phone"
                       type="tel"
-                      className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="+91"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
+                    <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 px-2">
                       Inquiry Details
                     </label>
                     <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
                       rows={5}
-                      className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20 resize-none"
+                      className="w-full bg-[#1A1612] border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-[#D4AF37]/50 transition-all placeholder:text-white/20 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="How can we assist you?"
                     />
                   </div>
 
-                  <button className="w-full bg-[#D4AF37] text-black font-bold py-5 rounded-2xl transition-all hover:shadow-[0_20px_40px_-5px_rgba(212,175,55,0.3)] hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 group">
-                    PROCEED WITH INQUIRY
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#D4AF37] text-black font-bold py-5 rounded-2xl transition-all hover:shadow-[0_20px_40px_-5px_rgba(212,175,55,0.3)] hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        SENDING...
+                      </>
+                    ) : (
+                      <>
+                        PROCEED WITH INQUIRY
+                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
@@ -216,6 +338,7 @@ export default function ContactContent() {
             className="w-full h-[500px] rounded-[3rem] overflow-hidden border border-white/5 bg-white/5 relative group"
           >
             <iframe
+              title="Chillcloud India Office Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4154.603106292702!2d77.3877752760161!3d28.616165784822638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaab56c845dbb3ec3%3A0x52f5e89140477826!2sChillcloud%20India%20LLP!5e1!3m2!1sen!2sin!4v1771009607321!5m2!1sen!2sin"
               width="100%"
               height="100%"
@@ -223,7 +346,7 @@ export default function ContactContent() {
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              // className="grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+            // className="grayscale contrast-125 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
             />
             {/* Overlay to catch initial clicks/scrolls if desired, or just styling */}
             <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" />
@@ -232,7 +355,7 @@ export default function ContactContent() {
       </section>
 
       {/* Decorative Branding - Infinite Scroll */}
-      <Branding />
+      {/* <Branding /> */}
     </div>
   );
 }

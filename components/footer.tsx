@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#12100E] via-[#0D0D0D] to-[black]" />
 
         {/* Shifting Animated Glows */}
-        <motion.div
+        {/* <motion.div
           animate={{
             x: [0, 100, 0],
             y: [0, 50, 0],
@@ -69,7 +69,7 @@ export default function Footer() {
             ease: "linear",
           }}
           className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-[#8B4513]/[0.08] rounded-full blur-[150px] pointer-events-none"
-        />
+        /> */}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">

@@ -2,6 +2,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
 import PresenceContent from "@/components/PresenceContent";
+import FeaturesBar from "@/components/FeaturesBar";
 
 export const metadata: Metadata = {
   title: "Our Presence | Chillcloud India LLP",
@@ -14,6 +15,7 @@ export default function PresencePage() {
     <main className="min-h-screen">
       <Navigation />
       <PresenceContent />
+      <FeaturesBar />
       <Footer />
     </main>
   );

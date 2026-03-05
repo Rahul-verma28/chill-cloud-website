@@ -6,99 +6,119 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// const SLIDES = [
+//   {
+//     image: "/hero/hero-05.png",
+//     title: "ELITE ",
+//     highlight: "PACKAGING",
+//     subtitle: "THE GOLD STANDARD",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Process", primary: false },
+//     ],
+//   },
+//   {
+//     image: "/hero/hero-06.png",
+//     title: "ELITE ",
+//     highlight: "PACKAGING",
+//     subtitle: "THE GOLD STANDARD",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Process", primary: false },
+//     ],
+//   },
+//   {
+//     image: "/hero/hero-04.png",
+//     title: "ELITE ",
+//     highlight: "PACKAGING",
+//     subtitle: "THE GOLD STANDARD",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Process", primary: false },
+//     ],
+//   },
+//   // {
+//   //   image: '/hero/hero-03.png',
+//   //   title: 'ELITE ',
+//   //   highlight: 'PACKAGING',
+//   //   subtitle: 'THE GOLD STANDARD',
+//   //   description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
+//   //   buttons: [
+//   //     { text: 'Explore Now', primary: true },
+//   //     { text: 'Process', primary: false }
+//   //   ]
+//   // },
+//   {
+//     image: "/hero/hero-07.jpeg",
+//     title: "CIGA-ROLLS",
+//     subtitle: "THE GOLD STANDARD",
+//     description: "CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.",
+//     badge: "LUXURY COLLECTION",
+//   },
+//   {
+//     image: "/hero/hero-08.jpeg",
+//     title: "ELITE ",
+//     highlight: "CHILL",
+//     subtitle: "PREMIUM SHOWCASE",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Concierge", primary: false },
+//     ],
+//   },
+//   {
+//     image: "/hero/hero-05.png",
+//     title: "ELITE ",
+//     highlight: "PACKAGING",
+//     subtitle: "THE GOLD STANDARD",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Process", primary: false },
+//     ],
+//   },
+//   {
+//     image: "/hero/hero-10.png",
+//     title: "ELITE ",
+//     highlight: "PACKAGING",
+//     subtitle: "THE GOLD STANDARD",
+//     description:
+//       "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
+//     buttons: [
+//       { text: "Explore Now", primary: true },
+//       { text: "Process", primary: false },
+//     ],
+//   },
+// ];
+
 const SLIDES = [
   {
-    image: "/hero/hero-05.png",
-    title: "ELITE ",
-    highlight: "PACKAGING",
-    subtitle: "THE GOLD STANDARD",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Process", primary: false },
-    ],
+    image: "/hero/img5.png",
   },
   {
-    image: "/hero/hero-06.png",
-    title: "ELITE ",
-    highlight: "PACKAGING",
-    subtitle: "THE GOLD STANDARD",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Process", primary: false },
-    ],
+    image: "/hero/img6.png",
   },
   {
-    image: "/hero/hero-04.png",
-    title: "ELITE ",
-    highlight: "PACKAGING",
-    subtitle: "THE GOLD STANDARD",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Process", primary: false },
-    ],
-  },
-  // {
-  //   image: '/hero/hero-03.png',
-  //   title: 'ELITE ',
-  //   highlight: 'PACKAGING',
-  //   subtitle: 'THE GOLD STANDARD',
-  //   description: 'Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.',
-  //   buttons: [
-  //     { text: 'Explore Now', primary: true },
-  //     { text: 'Process', primary: false }
-  //   ]
-  // },
-  {
-    image: "/hero/hero-07.jpeg",
-    title: "CIGA-ROLLS",
-    subtitle: "THE GOLD STANDARD",
-    description: "CRAFTED FOR CONNOISSEURS. YOUR DAILY DOSE OF CHILL.",
-    badge: "LUXURY COLLECTION",
+    image: "/hero/img1.png",
   },
   {
-    image: "/hero/hero-08.jpeg",
-    title: "ELITE ",
-    highlight: "CHILL",
-    subtitle: "PREMIUM SHOWCASE",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Concierge", primary: false },
-    ],
+    image: "/hero/img2.png",
   },
   {
-    image: "/hero/hero-05.png",
-    title: "ELITE ",
-    highlight: "PACKAGING",
-    subtitle: "THE GOLD STANDARD",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Process", primary: false },
-    ],
+    image: "/hero/img3.png",
   },
   {
-    image: "/hero/hero-10.png",
-    title: "ELITE ",
-    highlight: "PACKAGING",
-    subtitle: "THE GOLD STANDARD",
-    description:
-      "Experience the pinnacle of luxury with our handrolled masterpieces, delivered in artisan-certified packaging.",
-    buttons: [
-      { text: "Explore Now", primary: true },
-      { text: "Process", primary: false },
-    ],
-  },
-];
-
+    image: "/hero/img4.png",
+  }
+]
 export default function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -132,20 +152,20 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[60vh] min-h-[480px] md:min-h-[550px] lg:h-screen lg:min-h-[700px] w-full bg-[#0D0B09]"
+      className="relative h-[50vh] min-h-[480px] md:min-h-[550px] lg:h-screen lg:min-h-[700px] w-full bg-[#0D0B09]"
     >
       <div className="h-full w-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
             <div
-              key={index}
+              key={index + slide.image}
               className="relative min-w-full flex-[0_0_100%] overflow-hidden"
             >
               {/* Background Image with Slow Cinematic Zoom */}
               <div className="absolute inset-0">
                 <Image
                   src={slide.image}
-                  alt={slide.title}
+                  alt={slide.image}
                   fill
                   quality={100}
                   sizes="100vw"
